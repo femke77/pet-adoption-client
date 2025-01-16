@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { User } from '../interfaces/User';
 import CryptoJS from 'crypto-js';
 
+const secretKey = import.meta.env.VITE_SECRET_KEY;
+
 interface AuthState {
   isAuthenticated: boolean;
   userData: User | null;
@@ -31,7 +33,7 @@ const authSlice = createSlice({
       state.userData = action.payload;
       const encryptedUserDetails = CryptoJS.AES.encrypt(
         JSON.stringify(action.payload),
-        'secret',
+        secretKey,
       ).toString();
       sessionStorage.setItem('ud', encryptedUserDetails);
     },

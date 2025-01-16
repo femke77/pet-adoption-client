@@ -19,7 +19,8 @@ const App = () => {
   useEffect(() => {
     const data = sessionStorage.getItem('ud');
     if (data) {
-      const bytes = CryptoJS.AES.decrypt(data, 'secret');
+      const secretKey = import.meta.env.VITE_SECRET_KEY;
+      const bytes = CryptoJS.AES.decrypt(data, secretKey);
       const decryptedUserDetails = JSON.parse(
         bytes.toString(CryptoJS.enc.Utf8),
       );
