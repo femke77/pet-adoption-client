@@ -2,12 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import { axiosInstance } from '../utils/axiosConfig';
 import type { User } from '../interfaces/User';
 
-const fetchUsers = async (
-
-): Promise<User[]> => {
-  const response = await axiosInstance.get<User[]>('/api/users', {
- 
-  });
+const fetchUsers = async (): Promise<User[]> => {
+  const response = await axiosInstance.get<User[]>('/api/users', {});
   return response.data;
 };
 

@@ -24,6 +24,7 @@ export const useLogin = () => {
     onSuccess: (data) => {
       dispatch(loginSuccess(data));
     },
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     onError: (error: any) => {
       console.log(error.response.data.message);
       dispatch(loginFailure(error.response.data.message));

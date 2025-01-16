@@ -26,8 +26,8 @@ const router = createBrowserRouter([
         path: '/test',
         element: (
           // <AuthGuard>
-            <Test />
-        // </AuthGuard>
+          <Test />
+          // </AuthGuard>
         ),
       },
     ],

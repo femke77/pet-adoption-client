@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLogin } from "../hooks/useLogin";
+import { useLogin } from '../hooks/useLogin';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../state/store';
@@ -14,7 +14,6 @@ const LoginForm: React.FC = () => {
   const [formState, setFormState] = useState<LoginSchema>({
     email: '',
     password: '',
-
   });
 
   const [errors, setErrors] = useState<{
@@ -32,6 +31,7 @@ const LoginForm: React.FC = () => {
     try {
       loginSchema.parse(formState);
       await login(formState);
+      /* eslint-disable @typescript-eslint/no-explicit-any */
     } catch (error: any) {
       if (error instanceof z.ZodError) {
         const fieldErrors: { [key: string]: string } = {};
@@ -74,7 +74,10 @@ const LoginForm: React.FC = () => {
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
+              <label
+                htmlFor="email"
+                className="block text-sm/6 font-medium text-gray-900"
+              >
                 Email address
               </label>
               <div className="mt-2">
@@ -92,11 +95,17 @@ const LoginForm: React.FC = () => {
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">
+                <label
+                  htmlFor="password"
+                  className="block text-sm/6 font-medium text-gray-900"
+                >
                   Password
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <a
+                    href="#"
+                    className="font-semibold text-indigo-600 hover:text-indigo-500"
+                  >
                     Forgot password?
                   </a>
                 </div>
@@ -118,7 +127,6 @@ const LoginForm: React.FC = () => {
               </div>
             </div>
 
-
             <div>
               <button
                 type="submit"
@@ -130,13 +138,13 @@ const LoginForm: React.FC = () => {
           </form>
 
           <p className="mt-10 text-center text-sm/6 text-gray-500">
-           
-            <Link to="/register" className="font-semibold text-indigo-600 hover:text-indigo-500">
-            Need an account?{' '}
+            <Link
+              to="/register"
+              className="font-semibold text-indigo-600 hover:text-indigo-500"
+            >
+              Need an account?{' '}
             </Link>
           </p>
-
-
         </div>
         {errors.email && <div>{errors.email}</div>}
         {errors.password && <div>{errors.password}</div>}

@@ -5,8 +5,8 @@ import { Outlet } from 'react-router-dom';
 // import { loginSuccess } from './state/authSlice';
 import { axiosInterceptor } from './utils/axiosConfig';
 import { useLogout } from './hooks/useLogout';
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const logout = useLogout();
@@ -14,14 +14,12 @@ const App = () => {
 
   axiosInterceptor(logout);
 
-
   return (
     <>
-      <ToastContainer position="top-center"/>
+      <ToastContainer position="top-center" />
       <Outlet />;
     </>
   );
-
 };
 
 export default App;

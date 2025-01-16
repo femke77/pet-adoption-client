@@ -1,5 +1,5 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -8,8 +8,8 @@ export default defineConfig({
     port: 3000,
     host: true,
     proxy: {
-      "/api": {
-        target: "http://localhost:3004",
+      '/api': {
+        target: 'http://localhost:3004',
         changeOrigin: true,
         secure: false,
       },
