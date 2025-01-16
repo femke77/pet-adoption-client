@@ -1,5 +1,5 @@
 import { useUsers } from '../hooks/useUsers';
-
+import LogoutButton from '../components/LogoutButton';
 const Test = () => {
   const { data: users, isLoading, error } = useUsers();
 
@@ -7,6 +7,7 @@ const Test = () => {
 
   return (
     <div>
+      <LogoutButton />
       <h1>Test</h1>
       {users ? (
         users.map((user) => (

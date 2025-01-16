@@ -31,7 +31,7 @@ const App = () => {
   return (
     <>
       <ToastContainer position="top-center" transition={Zoom} theme="colored" />
-      <Outlet />;
+      <Outlet />
     </>
   );
 };

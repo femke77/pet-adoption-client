@@ -5,7 +5,7 @@ import { StrictMode } from 'react';
 import App from './App.tsx';
 import Main from './pages/Main.tsx';
 import Error from './pages/Error.tsx';
-// import AuthGuard from './components/AuthGuard.tsx';
+import AuthGuard from './components/AuthGuard.tsx';
 import { Provider } from 'react-redux';
 import { store } from './state/store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -25,9 +25,9 @@ const router = createBrowserRouter([
       {
         path: '/test',
         element: (
-          // <AuthGuard>
-          <Test />
-          // </AuthGuard>
+          <AuthGuard>
+            <Test />
+          </AuthGuard>
         ),
       },
     ],
