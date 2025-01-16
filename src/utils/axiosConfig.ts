@@ -7,18 +7,13 @@ const axiosInstance = axios.create({
 });
 
 const axiosInterceptor = (logout: () => void) => {
-  // intercept the response
   axiosInstance.interceptors.response.use(
     (res) => res,
     async (err) => {
-      console.log(err);
-
       const status = err?.response?.status || null;
-      // if unauthorized redirect to login page
-      if (status === 403 || status === 401) {
-        console.log(status);
-        toast.info('Your session has expired. Please login');
 
+      if (status === 401) {
+        toast.info('Your session has expired. Please login again.');
         logout();
       }
 

@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { User } from '../interfaces/User';
+import CryptoJS from 'crypto-js';
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -28,6 +29,11 @@ const authSlice = createSlice({
       state.loading = false;
       state.error = null;
       state.userData = action.payload;
+      const encryptedUserDetails = CryptoJS.AES.encrypt(
+        JSON.stringify(action.payload),
+        'secret',
+      ).toString();
+      sessionStorage.setItem('ud', encryptedUserDetails);
     },
     loginFailure(state, action: PayloadAction<string>) {
       state.isAuthenticated = false;
@@ -39,6 +45,7 @@ const authSlice = createSlice({
       state.loading = false;
       state.error = null;
       state.userData = null;
+      sessionStorage.removeItem('ud');
     },
   },
 });

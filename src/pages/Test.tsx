@@ -2,6 +2,7 @@ import { useUsers } from '../hooks/useUsers';
 
 const Test = () => {
   const { data: users, isLoading, error } = useUsers();
+
   if (isLoading) return <div>Loading...</div>;
 
   return (
@@ -15,7 +16,7 @@ const Test = () => {
           </div>
         ))
       ) : (
-        <p>No users found. Try again</p>
+        <p>No users found.</p>
       )}
 
       {error && <p>Error fetching users.</p>}
