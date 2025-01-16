@@ -12,13 +12,12 @@ const App = () => {
   const logout = useLogout();
   // const dispatch = useDispatch();
 
- 
-    axiosInterceptor(logout);
- 
+  axiosInterceptor(logout);
+
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer position="top-center"/>
       <Outlet />;
     </>
   );
