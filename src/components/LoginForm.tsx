@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../state/store';
 import { z } from 'zod';
-import { LoginSchema } from '../schemas/LoginSchema';
+import type { LoginSchema } from '../schemas/LoginSchema';
 import loginSchema from '../schemas/LoginSchema';
 
 const LoginForm: React.FC = () => {
@@ -42,7 +42,6 @@ const LoginForm: React.FC = () => {
         });
         setErrors(fieldErrors);
       } else {
-        console.log(error);
         setErrors({
           message:
             error.response.data.message ||

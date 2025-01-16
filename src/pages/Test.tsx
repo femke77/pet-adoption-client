@@ -15,7 +15,7 @@ const Test = () => {
           </div>
         ))
       ) : (
-        <p>No users found</p>
+        <p>No users found. Try again</p>
       )}
 
       {error && <p>Error fetching users.</p>}
