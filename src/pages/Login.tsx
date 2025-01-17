@@ -6,6 +6,7 @@ import { RootState } from '../state/store';
 import { z } from 'zod';
 import type { LoginSchema } from '../schemas/LoginSchema';
 import loginSchema from '../schemas/LoginSchema';
+import HeartPaw from '../assets/images/heart-paws.png';
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ const LoginForm: React.FC = () => {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             alt="Pawsome Pets Logo - A heart with paw prints inside"
-            src="/paw.jpg"
+            src={HeartPaw}
             className="mx-auto h-20 w-auto"
           />
           <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">

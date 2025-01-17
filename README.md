@@ -67,6 +67,7 @@ To run tests, run the following command:
 
 ## Credits 
 
+Images of cats & dogs together by [Vecteezy.com](https://www.vecteezy.com/)
 
  ## Questions 
   

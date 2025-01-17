@@ -9,6 +9,7 @@ import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CryptoJS from 'crypto-js';
 import { useEffect } from 'react';
+import Navigation from './components/NavBar';
 
 const App = () => {
   const logout = useLogout();
@@ -30,6 +31,7 @@ const App = () => {
 
   return (
     <>
+      <Navigation />
       <ToastContainer position="top-center" transition={Zoom} theme="colored" />
       <Outlet />
     </>

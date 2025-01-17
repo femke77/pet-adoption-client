@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import { store } from './state/store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Test from './pages/Test.tsx';
+import Login from './pages/Login.tsx';
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Main />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
       },
       {
         path: '/test',
