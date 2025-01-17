@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "KittenPaw";
-  src: url("./assets//fonts/kitten_paw/Kitten-paw.otf") format("opentype");
+  font-family: 'KittenPaw';
+  src: url('./assets//fonts/kitten_paw/Kitten-paw.otf') format('opentype');
 }
 @font-face {
-  font-family: "CuteCat";
-  src: url("./assets/fonts/cute_cat/CuteCat.otf") format("opentype");
+  font-family: 'CuteCat';
+  src: url('./assets/fonts/cute_cat/CuteCat.otf') format('opentype');
 }

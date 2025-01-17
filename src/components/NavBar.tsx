@@ -18,34 +18,34 @@ const navigation = [
 export default function Navigation() {
   const location = useLocation();
   return (
-    <Disclosure as="nav" className="bg-gray-700">
+    <Disclosure as='nav' className='bg-gray-700'>
       {({ open }) => (
         <>
-          <div className="mx-auto px-4 sm:px-4 lg:px-4">
-            <div className="relative flex h-16 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="absolute -inset-0.5" />
-                  <span className="sr-only">Open main menu</span>
+          <div className='mx-auto px-4 sm:px-4 lg:px-4'>
+            <div className='relative flex h-16 items-center justify-between'>
+              <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
+                <DisclosureButton className='relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
+                  <span className='absolute -inset-0.5' />
+                  <span className='sr-only'>Open main menu</span>
                   {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XMarkIcon className='block h-6 w-6' aria-hidden='true' />
                   ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    <Bars3Icon className='block h-6 w-6' aria-hidden='true' />
                   )}
                 </DisclosureButton>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <NavLink to="/" className="flex flex-shrink-0 items-center">
+              <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
+                <NavLink to='/' className='flex flex-shrink-0 items-center'>
                   <DisclosureButton>
                     <img
-                      className="h-16 w-16"
+                      className='h-16 w-16'
                       src={HeartPaw}
-                      alt="Pawsome Pets Logo - A heart with paw prints inside"
+                      alt='Pawsome Pets Logo - A heart with paw prints inside'
                     />
                   </DisclosureButton>
                 </NavLink>
-                <div className="hidden sm:ml-6 sm:flex flex-1 items-center">
-                  <div className="flex space-x-4">
+                <div className='hidden sm:ml-6 sm:flex flex-1 items-center'>
+                  <div className='flex space-x-4'>
                     {navigation.map((item) => (
                       <NavLink
                         key={item.name}
@@ -66,10 +66,10 @@ export default function Navigation() {
                   </div>
                 </div>
               </div>
-              <div className="hidden sm:flex">
+              <div className='hidden sm:flex'>
                 <NavLink
-                  className="flex w-20 mx-10 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  to="/donate"
+                  className='flex w-20 mx-10 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                  to='/donate'
                 >
                   Donate
                 </NavLink>
@@ -77,8 +77,8 @@ export default function Navigation() {
             </div>
           </div>
 
-          <DisclosurePanel className="sm:hidden absolute z-40 bg-gray-800 w-full">
-            <div className="space-y-1 px-2 pb-3 pt-2 ">
+          <DisclosurePanel className='sm:hidden absolute z-40 bg-gray-800 w-full'>
+            <div className='space-y-1 px-2 pb-3 pt-2 '>
               {navigation.map((item) => (
                 <DisclosureButton
                   key={item.name}
@@ -98,8 +98,8 @@ export default function Navigation() {
                 </DisclosureButton>
               ))}
               <NavLink
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                to="/donate"
+                className='flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                to='/donate'
               >
                 Donate
               </NavLink>

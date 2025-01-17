@@ -15,7 +15,7 @@
 
   Routing is done with React Router Dom.
 
-  A huskey pre-commit hook is linting my staged files to ensure good code uniformity with prettier rules. 
+  A husky pre-commit hook is linting my staged files to ensure good code uniformity with prettier rules. 
 
   I prefer headless architecture so this is only the client side. The server is located at https://github.com/femke77/pet-adoption-server
   
