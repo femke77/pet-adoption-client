@@ -31,9 +31,11 @@ const App = () => {
 
   return (
     <>
-      <Navigation />
       <ToastContainer position="top-center" transition={Zoom} theme="colored" />
-      <Outlet />
+      <Navigation />
+      <main className="h-screen ">
+        <Outlet />
+      </main>
     </>
   );
 };
