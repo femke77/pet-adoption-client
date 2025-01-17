@@ -3,17 +3,14 @@ import Pets from '../assets/images/sunshine-pets.jpg';
 export default function Main() {
   return (
     <div className="">
-      <h1
-        style={{ fontFamily: 'KittenPaw' }}
-        className="text-5xl md:text-7xl text-center font-bold mt-3 pt-2 mb-2"
-      >
+      <h1 className="font-cuteCat text-6xl md:text-7xl text-center font-bold mt-3 pt-2 mb-2">
         Pawsome Pets Adoption
       </h1>
-      <img src={Pets} alt="Sunshine Pets" />
-      <p className="font-kittenPaw text-center text-2xl sm:text-4xl my-5 font-bold">
+      <img loading="lazy" src={Pets} alt="Sunshine Pets" />
+      <p className="font-cuteCat text-center text-3xl md:text-5xl my-5 font-bold">
         Find your new best friend today!
       </p>
-      <p className="px-8 md:px-12 mb-14 ">
+      <p className="px-8 md:px-14 mb-14 ">
         Adopting a puppy, dog, cat, or kitten from Pawsome Pets is not just
         about finding a pet; it's about welcoming a new family member into your
         home. We are dedicated to ensuring that every animal finds a loving
