@@ -7,6 +7,16 @@
   
   Match users with the pet of their dreams. 
 
+  This application uses session authentication with an axios response interceptor to redirect the user to login if session expires, but rolling is set to true with express-sessions so user should stay logged in until 5 min of inactivity.
+
+  React query handles state from server such as pet data. Auth status and user details client state is handled by Redux Toolkit. User details are encrypted and stored in sessionStorage for persistance across reloads. 
+
+  Client built with TailwindCSS and Headless UI for React.
+
+  Routing is done with React Router Dom.
+
+  A huskey pre-commit hook is linting my staged files to ensure good code uniformity with prettier rules. 
+
   I prefer headless architecture so this is only the client side. The server is located at https://github.com/femke77/pet-adoption-server
   
   ## Table of Contents 📖

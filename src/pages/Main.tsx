@@ -1,13 +1,13 @@
-import Pets from '../assets/images/sunshine-pets.jpg';
+import Pets from '../assets/images/sunshine-pets.webp';
 
 export default function Main() {
   return (
     <div className="">
-      <h1 className="font-cuteCat text-6xl md:text-7xl text-center font-bold mt-3 pt-2 mb-2">
+      <h1 className="font-cuteCat text-6xl md:text-7xl lg:text-8xl text-center font-bold mt-3 pt-2 mb-2">
         Pawsome Pets Adoption
       </h1>
       <img loading="lazy" src={Pets} alt="Sunshine Pets" />
-      <p className="font-cuteCat text-center text-3xl md:text-5xl my-5 font-bold">
+      <p className="font-cuteCat text-center text-3xl md:text-5xl  my-5 font-bold">
         Find your new best friend today!
       </p>
       <p className="px-8 md:px-14 mb-14 ">
