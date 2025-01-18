@@ -6,6 +6,7 @@ const AuthGuard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const isLoggedIn = useSelector(
     (state: RootState) => state.auth.isAuthenticated,
   );
+  console.log(isLoggedIn);
 
   if (!isLoggedIn) {
     return <Navigate to='/' />;

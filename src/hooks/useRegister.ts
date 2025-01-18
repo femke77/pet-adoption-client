@@ -3,21 +3,24 @@ import { axiosInstance } from '../utils/axiosConfig';
 import { useDispatch } from 'react-redux';
 import { loginSuccess, loginFailure, startLoading } from '../state/authSlice';
 
-interface LoginCredentials {
+interface RegisterCredentials {
   email: string;
   password: string;
+  first_name: string;
+  last_name: string;
+  username: string;
 }
 
-const loginUser = async (credentials: LoginCredentials) => {
-  const response = await axiosInstance.post('/auth/login', credentials);
+const registerUser = async (credentials: RegisterCredentials) => {
+  const response = await axiosInstance.post('/auth/register', credentials);
   return response.data;
 };
 
-export const useLogin = () => {
+export const useRegister = () => {
   const dispatch = useDispatch();
 
   return useMutation({
-    mutationFn: loginUser,
+    mutationFn: registerUser,
     onMutate: () => {
       dispatch(startLoading());
     },

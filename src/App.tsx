@@ -27,6 +27,7 @@ const App = () => {
       );
       dispatch(loginSuccess(decryptedUserDetails));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

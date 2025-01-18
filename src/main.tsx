@@ -11,6 +11,7 @@ import { store } from './state/store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Test from './pages/Test.tsx';
 import Login from './pages/Login.tsx';
+import Register from './pages/Register.tsx';
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login />,
+      },
+      {
+        path: '/register',
+        element: <Register />,
       },
       {
         path: '/test',
