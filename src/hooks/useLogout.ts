@@ -10,11 +10,11 @@ const logoutUser = async () => {
 
 export const useLogout = () => {
   const navigate = useNavigate();
-  logoutUser();
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     console.log('Logging out');
+    logoutUser();
     dispatch(logout());
     navigate('/');
   };

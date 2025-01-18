@@ -3,10 +3,75 @@ import counsel from '../assets/images/counsel.png';
 import checks from '../assets/images/checks.png';
 import pets from '../assets/images/pets.png';
 import home from '../assets/images/home.png';
+import { useRef, useEffect, useState } from 'react';
 
 const Adopt = () => {
+  // TODO switch to ref instead of querySelector
+  const sectionsRef = useRef<HTMLElement[]>([]);
+  // Track which sections have been animated
+  const [animatedSections, setAnimatedSections] = useState<Set<number>>(
+    new Set(),
+  );
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const section = entry.target as HTMLElement;
+          const sectionIndex = sectionsRef.current.indexOf(section);
+
+          if (entry.isIntersecting) {
+            const slideInElement = section.querySelector('.slide-right');
+            const slideElement = section.querySelector('.slide-left');
+
+            if (slideInElement) {
+              slideInElement.classList.add('slide-in');
+            }
+            if (slideElement) {
+              slideElement.classList.add('slide');
+            }
+
+            setAnimatedSections((prev) => new Set(prev).add(sectionIndex));
+          } else {
+            // Section is leaving view
+            // Only remove classes if the section was previously animated
+            if (animatedSections.has(sectionIndex)) {
+              const slideInElement = section.querySelector('.slide-right');
+              const slideElement = section.querySelector('.slide-left');
+
+              if (slideInElement) {
+                slideInElement.classList.remove('slide-in');
+              }
+              if (slideElement) {
+                slideElement.classList.remove('slide');
+              }
+
+              setAnimatedSections((prev) => {
+                const next = new Set(prev);
+                next.delete(sectionIndex);
+                return next;
+              });
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '-50px 0px',
+      },
+    );
+
+    sectionsRef.current.forEach((section) => {
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, [animatedSections]);
+
   return (
-    <div className='mx-auto  px-4 sm:px-8 lg:px-10'>
+    <div className='mx-auto overflow-hidden px-4 sm:px-8 lg:px-10'>
       <h2 className='font-cuteCat text-6xl md:text-7xl lg:text-8xl text-center font-bold mt-3 pt-2 mb-2'>
         Adoption Process
       </h2>
@@ -28,8 +93,13 @@ const Adopt = () => {
       </p>
 
       {/* Section 1 */}
-      <section className='flex flex-1 justify-around items-center my-10'>
-        <div className='basis-1/4 slide-in slide-right'>
+      <section
+        ref={(el) => {
+          if (el) sectionsRef.current[0] = el;
+        }}
+        className='flex flex-1 justify-around items-center my-10'
+      >
+        <div className='basis-1/4 slide-right'>
           <img
             src={adopt}
             height='200px'
@@ -37,7 +107,7 @@ const Adopt = () => {
             alt='cartoon of hands typing on a laptop'
           />
         </div>
-        <div className='basis-3/4 pl-4 slide-left slide'>
+        <div className='basis-3/4 pl-4 slide-left '>
           <h2 className='font-cuteCat text-4xl md:text-5xl lg:text-6xl text-center font-bold mt-3 pt-2 mb-2'>
             Step 1
           </h2>
@@ -63,8 +133,13 @@ const Adopt = () => {
 
       {/* Section 2 */}
 
-      <section className='flex flex-1 justify-around items-center my-10'>
-        <div className='basis-3/4 slide-in slide-right'>
+      <section
+        ref={(el) => {
+          if (el) sectionsRef.current[1] = el;
+        }}
+        className='flex flex-1 justify-around items-center my-10'
+      >
+        <div className='basis-3/4 slide-right'>
           <h2 className='font-cuteCat text-4xl md:text-5xl lg:text-6xl text-center font-bold mt-3 pt-2 mb-2'>
             Step 2
           </h2>
@@ -72,14 +147,14 @@ const Adopt = () => {
             Adoption Counseling
           </h3>
           <p>
-            You will be contacted via email by a Volunteer Lucky Dog Animal
-            Rescue Adoption Counselor. They will schedule an initial phone
-            screening to further discuss your needs, preferences and lifestyle
-            as you look for a new family member. Our goal is to ensure a good
-            fit and guide you along your journey to pet adoption.
+            You will be contacted via email by a Volunteer Pawsome Pets Adoption
+            Counselor. They will schedule an initial phone screening to further
+            discuss your needs, preferences and lifestyle as you look for a new
+            family member. Our goal is to ensure a good fit and guide you along
+            your journey to pet adoption.
           </p>
         </div>
-        <div className='basis-1/4 pl-4 slide-left slide'>
+        <div className='basis-1/4 pl-4 slide-left '>
           <img
             src={counsel}
             height='200px'
@@ -90,8 +165,13 @@ const Adopt = () => {
       </section>
 
       {/* Section 3 */}
-      <section className='flex flex-1 justify-around items-center my-10'>
-        <div className='basis-1/4 slide-in slide-right'>
+      <section
+        ref={(el) => {
+          if (el) sectionsRef.current[2] = el;
+        }}
+        className='flex flex-1 justify-around items-center my-10'
+      >
+        <div className='basis-1/4  slide-right'>
           <img
             src={checks}
             height='200px'
@@ -99,7 +179,7 @@ const Adopt = () => {
             alt='cartoon of hands typing on a laptop'
           />
         </div>
-        <div className='basis-3/4 pl-4 slide-left slide'>
+        <div className='basis-3/4 pl-4 slide-left '>
           <h2 className='font-cuteCat text-4xl md:text-5xl lg:text-6xl text-center font-bold mt-3 pt-2 mb-2'>
             Step 3
           </h2>
@@ -118,8 +198,13 @@ const Adopt = () => {
 
       {/* Section 4 */}
 
-      <section className='flex flex-1 justify-around items-center my-10'>
-        <div className='basis-3/4 slide-in slide-right'>
+      <section
+        ref={(el) => {
+          if (el) sectionsRef.current[3] = el;
+        }}
+        className='flex flex-1 justify-around items-center my-10'
+      >
+        <div className='basis-3/4 slide-right'>
           <h2 className='font-cuteCat text-4xl md:text-5xl lg:text-6xl text-center font-bold mt-3 pt-2 mb-2'>
             Step 4
           </h2>
@@ -140,7 +225,7 @@ const Adopt = () => {
             match.
           </p>
         </div>
-        <div className='basis-1/4 pl-4 slide-left slide'>
+        <div className='basis-1/4 pl-4 slide-left '>
           <img
             src={pets}
             height='200px'
@@ -151,8 +236,13 @@ const Adopt = () => {
       </section>
 
       {/* Section 5 */}
-      <section className='flex flex-1 justify-around items-center my-10 '>
-        <div className='basis-1/4 slide-in slide-right'>
+      <section
+        ref={(el) => {
+          if (el) sectionsRef.current[4] = el;
+        }}
+        className='flex flex-1 justify-around items-center my-10 '
+      >
+        <div className='basis-1/4 slide-right'>
           <img
             src={home}
             height='200px'
@@ -160,7 +250,7 @@ const Adopt = () => {
             alt='cartoon of hands typing on a laptop'
           />
         </div>
-        <div className='basis-3/4 pl-4 slide-left slide mb-15'>
+        <div className='basis-3/4 pl-4 slide-left  mb-15'>
           <h2 className='font-cuteCat text-4xl md:text-5xl lg:text-6xl text-center font-bold mt-3 pt-2 mb-2'>
             Step 5
           </h2>
@@ -169,7 +259,8 @@ const Adopt = () => {
           </h3>
           <p>
             The last step is adopting your new furry family member. At the time
-            of adoption the adoption fee is due. See below for a list of fees.
+            of adoption the adoption fee is due.{' '}
+            {/* See below for a list of fees. */}
             We also require each animal to go home with a leash, ID tag,
             martingale collar and carrier for cats/kittens.
           </p>
