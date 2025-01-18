@@ -53,7 +53,9 @@
   
 
 ### Screenshots
-No screenshots yet.
+![ss1](./src/assets/images/homepage.png)
+
+![ss2](./src/assets/images/adoptpage.png)
 
 ______________________________________________________________________________________
 
