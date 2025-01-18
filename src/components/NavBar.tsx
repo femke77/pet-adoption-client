@@ -14,7 +14,7 @@ import { useLogout } from '../hooks/useLogout';
 const navigation = [
   { name: 'About', to: '/about' },
   { name: 'Meet the Pets', to: '/find' },
-  { name: 'Contact', to: '/contact' },
+  { name: 'How to Adopt', to: '/adopt' },
   { name: 'Login', to: '/login' },
 ];
 
@@ -100,24 +100,37 @@ export default function Navigation() {
 
           <DisclosurePanel className='sm:hidden absolute z-40 bg-gray-800 w-full'>
             <div className='space-y-1 px-2 pb-3 pt-2 '>
-              {navigation.map((item) => (
-                <DisclosureButton
-                  key={item.name}
-                  as={NavLink}
-                  to={item.to}
-                  className={({ isActive }: { isActive: boolean }) =>
-                    classNames(
-                      isActive
-                        ? 'bg-gray-700 text-white'
-                        : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                      'block rounded-md px-3 py-2 text-base font-medium',
-                    )
-                  }
-                  aria-current={location.pathname ? 'page' : undefined}
-                >
-                  {item.name}
-                </DisclosureButton>
-              ))}
+              {navigation.map((item) => {
+                if (loggedIn && item.name === 'Login') {
+                  return (
+                    <DisclosureButton
+                      key={item.name}
+                      onClick={logout}
+                      className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'
+                    >
+                      Logout
+                    </DisclosureButton>
+                  );
+                }
+                return (
+                  <DisclosureButton
+                    key={item.name}
+                    as={NavLink}
+                    to={item.to}
+                    className={({ isActive }: { isActive: boolean }) =>
+                      classNames(
+                        isActive
+                          ? 'bg-gray-700 text-white'
+                          : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                        'block rounded-md px-3 py-2 text-base font-medium',
+                      )
+                    }
+                    aria-current={location.pathname ? 'page' : undefined}
+                  >
+                    {item.name}
+                  </DisclosureButton>
+                );
+              })}
               <NavLink
                 className='flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
                 to='/donate'
