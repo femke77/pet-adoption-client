@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import CryptoJS from 'crypto-js';
 import { useEffect } from 'react';
 import Navigation from './components/NavBar';
+import Footer from './components/Footer';
 
 const App = () => {
   const logout = useLogout();
@@ -37,6 +38,7 @@ const App = () => {
       <main className='min-h-screen'>
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 };
