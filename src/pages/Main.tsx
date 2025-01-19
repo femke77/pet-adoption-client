@@ -1,6 +1,10 @@
 import Pets from '../assets/images/sunshine-pets.webp';
+import { useUsers } from '../hooks/useUsers';
 
 export default function Main() {
+  const { data: users } = useUsers();
+  console.log(users);
+
   return (
     <div className=''>
       <h1 className='font-cuteCat text-6xl md:text-7xl lg:text-8xl text-center font-bold mt-3 pt-2 mb-2'>

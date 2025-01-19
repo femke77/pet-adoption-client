@@ -6,10 +6,15 @@ const PetList = () => {
   const { data: pets, isLoading, error } = usePetQuery();
 
   if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error fetching pets.</div>;
+
   return (
     <div className='flex flex-wrap justify-center'>
-      {pets?.map((pet: Pet) => <PetCard key={pet.id} pet={pet} />)}
-      {error && <p>Error fetching pets.</p>}
+      {pets ? (
+        pets?.map((pet: Pet) => <PetCard key={pet.id} pet={pet} />)
+      ) : (
+        <p>No Pets Found</p>
+      )}
     </div>
   );
 };

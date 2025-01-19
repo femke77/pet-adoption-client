@@ -11,8 +11,18 @@ interface PetProps {
   num_users: number;
 }
 
+const SIZE_MAPPINGS = {
+  S: 'small',
+  M: 'medium',
+  L: 'large',
+  XL: 'extra large',
+} as const;
+
 const PetCard = ({ pet }: { pet: PetProps }) => {
   const { name, image, breed, age, type, location, size, num_users } = pet;
+  const sizeName =
+    type === 'dog' ? SIZE_MAPPINGS[size as keyof typeof SIZE_MAPPINGS] : '';
+
   return (
     <>
       <div className='max-w-sm rounded overflow-hidden shadow-lg m-3'>
@@ -21,13 +31,14 @@ const PetCard = ({ pet }: { pet: PetProps }) => {
             src={image ? image : 'https://via.placeholder.com/300'}
             className='w-64 h-48 object-contain'
             alt={`${name} the ${breed} ${type}`}
+            loading='lazy'
           />
         </div>
         <div className='px-6 py-4'>
           <div className='font-bold text-xl mb-2'>{name}</div>
           <p className='text-gray-700 text-base'>
             {age} year old {breed} from {location}.{' '}
-            {type === 'dog' ? <span> Size: {size}</span> : null}
+            {type === 'dog' ? <span> Dog's size is {sizeName}.</span> : null}
           </p>
         </div>
         <div className='px-6 pt-4 pb-2'>
