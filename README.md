@@ -62,7 +62,7 @@ ________________________________________________________________________________
 
 
 ## Known Issues 
-
+- Pet data usually won't match pet image. I used fakerjs to generate fake data, and the point of this project is the coding, not the fake data.
 
 ## How To Contribute 
   

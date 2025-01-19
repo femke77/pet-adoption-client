@@ -13,7 +13,7 @@ import { useLogout } from '../hooks/useLogout';
 
 const navigation = [
   { name: 'About', to: '/about' },
-  { name: 'Meet the Pets', to: '/find' },
+  { name: 'Meet the Pets', to: '/meet' },
   { name: 'How to Adopt', to: '/adopt' },
   { name: 'Login', to: '/login' },
 ];

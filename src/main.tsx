@@ -13,6 +13,7 @@ import Test from './pages/Test.tsx';
 import Login from './pages/Login.tsx';
 import Register from './pages/Register.tsx';
 import Adopt from './pages/Adopt.tsx';
+import Pets from './pages/Pets.tsx';
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: '/adopt',
         element: <Adopt />,
+      },
+      {
+        path: '/meet',
+        element: <Pets />,
       },
       {
         path: '/test',
