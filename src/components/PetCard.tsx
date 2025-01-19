@@ -1,4 +1,7 @@
 import { useSaveFavorites } from '../hooks/useSaveFavorites';
+import { useSelector } from 'react-redux';
+import { RootState } from '../state/store';
+import { Link } from 'react-router-dom';
 
 interface PetProps {
   id: number;
@@ -21,6 +24,9 @@ const SIZE_MAPPINGS = {
 } as const;
 
 const PetCard = ({ pet }: { pet: PetProps }) => {
+  const loggedIn = useSelector(
+    (state: RootState) => state.auth.isAuthenticated,
+  );
   const { saveFavorite, isPending } = useSaveFavorites();
   const { id, name, image, breed, age, type, location, size, num_users } = pet;
   const sizeName =
@@ -51,18 +57,22 @@ const PetCard = ({ pet }: { pet: PetProps }) => {
           </p>
         </div>
         <div className='px-6 pt-4 pb-2'>
-          <span
-            role='button'
-            onClick={() => handleFavorite(id)}
-            className='inline-block bg-pink-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'
-          >
-            Add to favorites
-            <i
-              className='fa-solid fa-heart fa-2xl'
-              style={{ color: 'red' }}
-            ></i>
-            <i className='far fa-heart fa-2xl'></i>
-          </span>
+          {loggedIn ? (
+            <span
+              role='button'
+              onClick={() => handleFavorite(id)}
+              className='inline-block bg-pink-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'
+            >
+              Add to favorites
+              <i
+                className='fa-solid fa-heart fa-2xl'
+                style={{ color: 'red' }}
+              ></i>
+              <i className='far fa-heart fa-2xl'></i>
+            </span>
+          ) : (
+            <Link to='/login'>Login to add favorite.</Link>
+          )}
           <span className='inline-block bg-pink-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
             This pet has {num_users} favorites
           </span>

@@ -59,7 +59,7 @@ export default function Navigation() {
                         return (
                           <button
                             key={item.name}
-                            onClick={logout}
+                            onClick={() => logout.mutate()}
                             className='text-gray-300 hover:bg-gray-700 hover:text-white text-sm px-3'
                           >
                             Logout
@@ -105,7 +105,7 @@ export default function Navigation() {
                   return (
                     <DisclosureButton
                       key={item.name}
-                      onClick={logout}
+                      onClick={() => logout.mutate()}
                       className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'
                     >
                       Logout

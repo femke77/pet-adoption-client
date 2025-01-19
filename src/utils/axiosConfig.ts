@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { toast } from 'react-toastify';
 
 const axiosInstance = axios.create({
@@ -9,8 +10,8 @@ const axiosInstance = axios.create({
   withCredentials: true,
 });
 
+// In your axios interceptor
 const axiosInterceptor = (logout: () => void) => {
-  // FIXME add a check for if coming from login page to allow 401 on login errors
   axiosInstance.interceptors.response.use(
     (res) => res,
     async (err) => {
