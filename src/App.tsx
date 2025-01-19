@@ -33,7 +33,12 @@ const App = () => {
 
   return (
     <>
-      <ToastContainer position='top-center' transition={Zoom} theme='colored' />
+      <ToastContainer
+        position='top-center'
+        transition={Zoom}
+        theme='colored'
+        autoClose={2500}
+      />
       <Navigation />
       <main className='min-h-screen'>
         <Outlet />
