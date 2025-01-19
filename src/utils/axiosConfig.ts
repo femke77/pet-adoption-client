@@ -10,6 +10,7 @@ const axiosInstance = axios.create({
 });
 
 const axiosInterceptor = (logout: () => void) => {
+  // FIXME add a check for if coming from login page to allow 401 on login errors
   axiosInstance.interceptors.response.use(
     (res) => res,
     async (err) => {

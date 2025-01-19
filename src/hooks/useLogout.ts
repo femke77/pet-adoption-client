@@ -14,8 +14,8 @@ export const useLogout = () => {
 
   const handleLogout = () => {
     console.log('Logging out');
-    logoutUser();
     dispatch(logout());
+    logoutUser();
     navigate('/');
   };
 
