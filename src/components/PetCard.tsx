@@ -39,7 +39,7 @@ const PetCard = ({ pet }: { pet: PetProps }) => {
 
   return (
     <>
-      <div className='max-w-sm rounded overflow-hidden shadow-lg m-3'>
+      <div className='w-96 rounded overflow-hidden shadow-lg m-3'>
         <div className='w-full h-48 flex justify-center items-center '>
           <img
             src={image ? image : 'https://via.placeholder.com/300'}

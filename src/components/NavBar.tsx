@@ -12,9 +12,9 @@ import { RootState } from '../state/store';
 import { useLogout } from '../hooks/useLogout';
 
 const navigation = [
-  { name: 'About', to: '/about' },
-  { name: 'Meet the Pets', to: '/meet' },
+  // { name: 'About', to: '/about' },
   { name: 'How to Adopt', to: '/adopt' },
+  { name: 'Meet the Pets', to: '/meet' },
   { name: 'Login', to: '/login' },
 ];
 
