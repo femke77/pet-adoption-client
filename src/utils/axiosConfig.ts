@@ -8,6 +8,9 @@ const axiosInstance = axios.create({
       ? 'https://pet-adoption-server-qa7c.onrender.com/'
       : 'http://localhost:3004',
   withCredentials: true,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 // In your axios interceptor

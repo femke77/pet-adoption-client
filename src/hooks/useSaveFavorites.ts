@@ -4,9 +4,6 @@ import { axiosInstance } from '../utils/axiosConfig';
 const saveFavorite = async (petId: number): Promise<string> => {
   const response = await axiosInstance.post<string>(
     `/api/users/favorite/${petId}`,
-    {
-      credentials: 'include',
-    },
   );
   return response.data;
 };
